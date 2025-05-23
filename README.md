@@ -14,7 +14,7 @@ This project uses [Terraform](https://www.terraform.io/) to deploy an EC2 instan
 ---
 
 ## Project Structure
-.
+```bash
 ├── dev/ # Development environment configurations
 │ ├── docker-compose.yml
 │ ├── nginx.conf
@@ -24,17 +24,17 @@ This project uses [Terraform](https://www.terraform.io/) to deploy an EC2 instan
 │ ├── bootstrap/
 │ │    ├── main.tf
 │ ├── dev/
-       ├── env/ # tfvars
-       ├── vpc/ # VPC module
-       │    ├── main.tf 
-       │    ├── outputs.tf 
-       │    ├── variables.tf 
-       ├── main.tf
-       ├── outputs.tf
-       └── variables.tfvars
+│      ├── env/ # tfvars
+│      ├── vpc/ # VPC module
+│      │    ├── main.tf 
+│      │    ├── outputs.tf 
+│      │    ├── variables.tf 
+│      ├── main.tf
+│      ├── outputs.tf
+│      └── variables.tfvars
 │ 
 └── README.md # You're here
-
+```
 ##  Bootstrap Infrastructure Deployment
 
 ```bash
