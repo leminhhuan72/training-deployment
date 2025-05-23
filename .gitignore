@@ -1,0 +1,12 @@
+# Ignore all hidden files and folders (those starting with a dot)
+.*
+
+# Allow the .git directory (important for Git's functionality)
+!.git
+!.gitignore
+# Ignore all .env files
+*.env
+
+# Ignore all .env directories
+.env/
+env/
