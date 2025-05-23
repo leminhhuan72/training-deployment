@@ -11,8 +11,6 @@ images=(
     "cuongopswat/go-coffeeshop-web"
 )
 DOCKER_HUB_USER="leminhhuan72"
-# Your private registry (change this to your own registry URL)
-PRIVATE_REGISTRY="myprivateregistry.example.com"
 
 for image in "${images[@]}"; do
     echo "Pulling $image:latest"
