@@ -10,3 +10,7 @@
 # Ignore all .env directories
 .env/
 env/
+*.terraform.*
+*.terraform
+terraform.*
+*tfstate
