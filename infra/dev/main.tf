@@ -58,7 +58,7 @@ module "docker_ec2" {
 
     docker compose version
 
-    git clone https://github.com/Meraviglioso8/final-exam-coffee-shop.git /home/ec2-user/coffee-shop
+    git clone https://github.com/leminhhuan72/training-deployment.git /home/ec2-user/coffee-shop
 
     cat > /home/ec2-user/coffee-shop/dev/.env <<'ENVFILE'
     ${file("../../dev/.env")}
@@ -135,28 +135,4 @@ resource "aws_db_instance" "postgres" {
 
   tags                   = var.common_tags
 }
-
-# 5) Store credentials in Secrets Manager
-resource "aws_secretsmanager_secret" "db_credentials" {
-  name        = "${var.name}-postgresdb-rds-credentials"
-  description = "Master credentials for RDS PostgreSQL"
-  tags        = var.common_tags
-}
-
-resource "aws_secretsmanager_secret_version" "db_credentials" {
-  secret_id     = aws_secretsmanager_secret.db_credentials.id
-  secret_string = jsonencode({
-    username = var.db_username
-    password = var.db_password
-    engine   = aws_db_instance.postgres.engine
-    host     = aws_db_instance.postgres.address
-    port     = aws_db_instance.postgres.port
-    dbname   = var.db_name
-  })
-
-  depends_on = [aws_db_instance.postgres]
-}
-
-
-
 

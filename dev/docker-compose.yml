@@ -5,7 +5,7 @@ networks:
 services:
   # 2) RabbitMQ
   rabbitmq:
-    image:  rabbitmq:alpine
+    image: rabbitmq:alpine
     restart: always
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
@@ -115,20 +115,6 @@ services:
       WEB_PORT: "8888"
     ports:
       - "8888:8888"
-    networks:
-      - coffeeshop-net
-
-  # 9) Watchtower – auto-pulls and restarts services when new images are available
-  watchtower:
-    image: leminhhuan72/watchtower:dev-latest
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command:
-      - --interval
-      - "300"         # check every 5 minutes
-      - --cleanup     # remove old images after updating
-      - coffeeshop-net/*  # watch all containers on this network
     networks:
       - coffeeshop-net
 
